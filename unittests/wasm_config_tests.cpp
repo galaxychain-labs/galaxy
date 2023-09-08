@@ -1031,6 +1031,9 @@ BOOST_FIXTURE_TEST_CASE(reset_chain_tests, wasm_config_tester) {
    }
    produce_block();
    // Make sure that a normal contract works
+   set_abi(config::system_account_name, test_contracts::wasm_config_bios_abi().data());
+   set_code(config::system_account_name, test_contracts::wasm_config_bios_wasm());
+   produce_block();
    set_wasm_params(genesis_state::default_initial_wasm_configuration);
    produce_block();
 }
